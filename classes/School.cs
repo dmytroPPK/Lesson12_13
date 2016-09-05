@@ -4,21 +4,25 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Lesson12_13.Core
 {
-    class School : IEnumerator, IEnumerable, IDisposable
+    [Serializable]
+    class School : IEnumerator, IEnumerable, IDisposable, ISerializable
     {
         public IList<SchoolChild> ChildList { get; set; }
         private int position = -1;
+        protected Subjects subjects;
 
         public School()
         {
             ChildList = new List<SchoolChild>();
+            subjects = new Subjects();
         }
-        public School(List<SchoolChild> serializeList)    //: base()
+        public Subjects GetSubjects()
         {
-            ChildList = serializeList;
+            return subjects;
         }
         public SchoolChild this[int indexer]
         {
@@ -99,6 +103,19 @@ namespace Lesson12_13.Core
         public void Dispose()
         {
             Reset();
+        }
+
+        // Serializable
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue(nameof(ChildList), ChildList);
+            info.AddValue(nameof(this.subjects),this.subjects);
+        }
+        private School(SerializationInfo info, StreamingContext context)
+        {
+            ChildList = info.GetValue(nameof(ChildList), typeof(List<SchoolChild>)) as List<SchoolChild>;
+            subjects = (Subjects)info.GetValue(nameof(subjects), typeof(Subjects));
+            
         }
     }
 }

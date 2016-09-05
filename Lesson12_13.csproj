@@ -43,11 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\MySerializator.cs" />
     <Compile Include="classes\School.cs" />
     <Compile Include="classes\SchoolChild.cs" />
     <Compile Include="classes\Subject.cs" />
     <Compile Include="classes\Subjects.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="MyInit.cs" />
+    <Compile Include="Program_part2.cs" />
+    <Compile Include="Program_part1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

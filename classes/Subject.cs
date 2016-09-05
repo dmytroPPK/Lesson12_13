@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lesson12_13.Core
 {
+    [Serializable]
     class Subject
     {
         public int ID { get; set; }

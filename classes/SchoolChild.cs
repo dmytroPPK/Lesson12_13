@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lesson12_13.Core
 {
+    [Serializable]
     class SchoolChild
     {
         public int ID { get; set; }
@@ -51,13 +52,13 @@ namespace Lesson12_13.Core
         {
             return this.GetHashCode() == obj.GetHashCode();
         }
-        public override string ToString() => $"ID {ID}, Name {Name}, Age {Age}, AverScore {AverScore}";
+        public override string ToString() => $"ID {ID}, Name {Name}, Age {Age}, AverScore {AverScore:F}";
         
         public string ToString(bool viewSubjectsScore )
         {
             if (viewSubjectsScore)
             {
-                string dataStr = $"Name {Name}, Age {Age}, AverScore {AverScore}\n";
+                string dataStr = $"Name {Name}, Age {Age}, AverScore {AverScore:F}\n";
                 if(ownSubjects.Count == 0)
                 {
                     dataStr += "\tThis child has not the subjects";

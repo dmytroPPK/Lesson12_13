@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lesson12_13.Core
 {
+    [Serializable]
     class Subjects
     {
         private IList<Subject> listOfSubjects;
