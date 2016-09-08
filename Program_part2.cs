@@ -20,7 +20,6 @@ namespace Lesson12_13
 
         public Program(string datfile_, bool initDefaultData_ = false)
         {
-            //DatFile = datfile_;
             myslr = new MySerializator(datfile_);
             isDefaultInit = initDefaultData_;
         }
@@ -164,13 +163,17 @@ namespace Lesson12_13
             {
                 Console.Write("Введите возраст: ");
                 var value = Int32.Parse(Console.ReadLine());
-                var list = school.ChildList.Where(c => c.Age > value);
+                //var list = school.ChildList.Where(c => c.Age > value);
+                var list = school.GetChildWithAge(value);
 
-                if (list.Count() == 0)
-                    Console.WriteLine("Empty List");
                 foreach (var item in list)
                 {
                     Console.WriteLine(item as SchoolChild);
+                }
+                if (!list.GetEnumerator().MoveNext())
+                {
+                    Console.WriteLine("Empty List");
+
                 }
             }
             catch (Exception ex)

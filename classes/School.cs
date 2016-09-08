@@ -46,9 +46,7 @@ namespace Lesson12_13.Core
             ChildList.Add(new SchoolChild { Name = name, ID = id + 1 , Age= age});
 
         }
-
-
-
+        
         //Using yield
         public IEnumerable GetChildWithAge(int age)
         {
@@ -60,16 +58,7 @@ namespace Lesson12_13.Core
                 }
             }
         }
-        public IEnumerable AverageAllChilds()
-        {
-            foreach (var item in ChildList)
-            {
-                yield return item.AverScore;
-            }
-        }
-
-
-
+        
         //IEnumerable
         public IEnumerator GetEnumerator()
         {

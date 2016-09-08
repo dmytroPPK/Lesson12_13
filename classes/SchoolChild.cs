@@ -13,27 +13,20 @@ namespace Lesson12_13.Core
         public string Name { get; set; }
         public int Age { get; set; }
         public double AverScore { get { return AverageScore(); } }
-        //public IDictionary<Subject, double> OwnSubjects => ownSubjects;
-        private IDictionary<Subject, double> ownSubjects;
+        private IDictionary<Subjects, double> ownSubjects;
 
         public SchoolChild()
         {
-            ownSubjects = new Dictionary<Subject, double>();
+            ownSubjects = new Dictionary<Subjects, double>();
         }
 
         private double AverageScore()
         {
-            if(ownSubjects.Count == 0)
-            {
-                return 0D;
-            }else
-            {
-                return ownSubjects.Values.Average();
-            }
+            return (ownSubjects.Count == 0)? 0D : ownSubjects.Values.Average();
         }
 
 
-        public void AddSubject(Subject subject, double score)
+        public void AddSubject(Subjects subject, double score)
         {
             if (!ownSubjects.ContainsKey(subject) && subject != null)
             {
@@ -46,7 +39,7 @@ namespace Lesson12_13.Core
         }
         public override int GetHashCode()
         {
-            return (ID.ToString() + "My salt").GetHashCode();
+            return (ID.ToString() + "My salt schoolchild").GetHashCode();
         }
         public override bool Equals(object obj)
         {

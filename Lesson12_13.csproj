@@ -46,7 +46,6 @@
     <Compile Include="classes\MySerializator.cs" />
     <Compile Include="classes\School.cs" />
     <Compile Include="classes\SchoolChild.cs" />
-    <Compile Include="classes\Subject.cs" />
     <Compile Include="classes\Subjects.cs" />
     <Compile Include="MyInit.cs" />
     <Compile Include="Program_part2.cs" />

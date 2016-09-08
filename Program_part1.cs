@@ -7,7 +7,7 @@ using Lesson12_13.Core;
 
 namespace Lesson12_13
 {
-    partial class Program_part1
+    partial class Program
     {
         static void Main(string[] args)
         {
