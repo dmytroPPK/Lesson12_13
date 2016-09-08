@@ -24,8 +24,7 @@ namespace Lesson12_13.Core
         {
             return (ownSubjects.Count == 0)? 0D : ownSubjects.Values.Average();
         }
-
-
+        
         public void AddSubject(Subjects subject, double score)
         {
             if (!ownSubjects.ContainsKey(subject) && subject != null)
